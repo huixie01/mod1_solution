@@ -5,15 +5,31 @@
 
   LunchCheckController.$inject = ['$scope'];
   function LunchCheckController($scope) {
-    var re =/\s*,\s*/;
-  //  console.log($scope);
-  //  var arrayOfItems = $scope.menuitems.split(re);
-    $scope.sayMessage = function() {
-      //if (arrayOfItems.length <= 3)
-        return "Enjoy!";
-      //elseif (arrayOfItems.length > 3)
-      //  return "Too much!";
+    $scope.foodItems = "";
+    $scope.message = "";
 
-      //return "Please enter data first";
-    }
+    $scope.checkLunchItems = function() {
+      $scope.foodItems = $scope.foodItems.trim();
+      if ($scope.foodItems == "")
+      {
+        $scope.message = "Please enter data first";
+        $scope.color = "red";
+      }
+      else {
+        var re =/\s*,\s*/;
+
+        var $arrayOfItems = $scope.foodItems.split(re);
+
+        var $length = $arrayOfItems.length;
+        if ($length <= 3) {
+            $scope.message = "Enjoy!";
+            $scope.color = "green";
+        }
+        else {
+            $scope.message = "Too much!";
+            $scope.color = "red";
+        }
+      }
+    };
+}
 })();
