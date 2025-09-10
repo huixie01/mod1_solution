@@ -12,7 +12,7 @@
       $scope.foodItems = $scope.foodItems.trim();
       if ($scope.foodItems == "")
       {
-        $scope.message = "Please enter data first";
+        $scope.message = "This function is to test the split function in AngularJS, assuming the food items in string format are concatenated with comma, no space in between comma, if there are more than three food items, then the message will give an alert, otherwise it will post an regular message. The code demonstrated the usage of controller in AngularJS";
         $scope.color = "red";
       }
       else {
